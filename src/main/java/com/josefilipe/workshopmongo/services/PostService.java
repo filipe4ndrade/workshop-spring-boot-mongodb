@@ -22,6 +22,10 @@ public class PostService {
 		return repo.findAll();
 	}
 
+	public List<Post> findByTitle(String text) {
+		return repo.searchTitle(text);
+	}
+	
 	public Post findById(String id) {
 		Optional<Post> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
